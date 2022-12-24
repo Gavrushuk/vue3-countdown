@@ -1,5 +1,7 @@
 # vue3-countdown
 
+## [Demo](https://gavrushuk.github.io/vue3-countdown/)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
