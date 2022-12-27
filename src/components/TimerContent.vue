@@ -39,7 +39,7 @@ const { days, hours, minutes, seconds } = toRefs(props);
   gap: 26px;
   .timer-content__item {
     flex: 1;
-    padding: 46px 29px;
+    padding: 46px 10px;
     background: #080F1A;
     border-radius: 22px;
     .timer-content__value {
@@ -57,6 +57,27 @@ const { days, hours, minutes, seconds } = toRefs(props);
       line-height: 21px;
       text-align: center;
       color: #A5DEFF;
+    }
+  }
+  @media (max-width: 1150px) {
+    gap: 12.5px;
+    .timer-content__item {
+      .timer-content__value {
+        font-size: 54px;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    gap: 6px;
+    .timer-content__item {
+      padding: 20px 10px;
+      .timer-content__value {
+        font-size: 24px;
+        line-height: 34px;
+      }
+      .timer-content__description {
+        font-size: 10px;
+      }
     }
   }
 }

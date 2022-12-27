@@ -73,7 +73,7 @@ const onSave = (data: any) => {
   background-size: cover;
   width: 100%;
   min-height: 100vh;
-  padding: 50px;
+  padding: 25px;
   .setting-btn {
     position: absolute;
     top: 20px;

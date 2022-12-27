@@ -75,7 +75,7 @@ startTimer();
   backdrop-filter: blur(10px);
   border-radius: 36px;
   width: 100%;
-  max-width: 1049px;
+  max-width: 1050px;
   padding: 50px 86px;
   .timer-title {
     font-weight: 200;
@@ -84,13 +84,26 @@ startTimer();
     text-align: center;
     letter-spacing: 0.125em;
     color: #FFFFFF;
-    margin: 0 -10px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
   }
   .timer-content {
     margin-top: 25px;
+  }
+  @media (max-width: 1150px) {
+    padding: 50px;
+    .timer-title {
+      font-size: 70px;
+      line-height: 90px;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 12.5px;
+    .timer-title {
+      font-size: 40px;
+      line-height: 60px;
+    }
   }
 }
 </style>
