@@ -7,13 +7,15 @@ import { RouterView } from 'vue-router';
 </template>
 
 <style lang="scss">
+* {
+  font-family: 'Poppins';
+  font-style: normal;
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-}
-
-div {
-  box-sizing: border-box;
 }
 </style>

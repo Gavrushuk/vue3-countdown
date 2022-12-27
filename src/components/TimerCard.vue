@@ -2,7 +2,11 @@
 import { ref } from 'vue';
 import TimerContent from './TimerContent.vue';
 
-const finishDate = new Date("Januar 1, 2023 00:00:00"); // New year
+const props = defineProps<{
+  title: string,
+  date: Date
+}>();
+
 const days = ref("00");
 const hours = ref("00");
 const minutes = ref("00");
@@ -18,11 +22,11 @@ function resetTimer() {
 }
 
 function updateTimer() {
-  if ((finishDate.getTime() - (new Date()).getTime()) <= 0) {
+  if ((props.date.getTime() - (new Date()).getTime()) <= 0) {
     resetTimer();
   }
 
-  const timerTime = finishDate.getTime() - (new Date()).getTime();
+  const timerTime = props.date.getTime() - (new Date()).getTime();
 
   const daysCount = Math.floor(timerTime / (24 * 60 * 60 * 1000));
   const daysms = timerTime % (24 * 60 * 60 * 1000)
@@ -43,8 +47,7 @@ function updateTimer() {
 function startTimer() {
   timerInterval = window.setInterval(() => {
     updateTimer();
-    console.log(new Date().getTime());
-    if ((finishDate.getTime() - (new Date()).getTime()) <= 0) {
+    if ((props.date.getTime() - (new Date()).getTime()) <= 0) {
       resetTimer();
     }
   }, 1000);
@@ -55,7 +58,7 @@ startTimer();
 
 <template>
   <div class="timer-card">
-    <div class="timer-title">HAPPY NEW YEAR</div>
+    <div class="timer-title">{{ title }}</div>
     <TimerContent
       :days="days"
       :hours="hours"
@@ -75,8 +78,6 @@ startTimer();
   max-width: 1049px;
   padding: 50px 86px;
   .timer-title {
-    font-family: 'Poppins';
-    font-style: normal;
     font-weight: 200;
     font-size: 90px;
     line-height: 135px;
@@ -84,6 +85,9 @@ startTimer();
     letter-spacing: 0.125em;
     color: #FFFFFF;
     margin: 0 -10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .timer-content {
     margin-top: 25px;
