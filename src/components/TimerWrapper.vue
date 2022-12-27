@@ -76,8 +76,8 @@ const onSave = (data: any) => {
   padding: 25px;
   .setting-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     background: transparent;
     border: none;
     cursor: pointer;

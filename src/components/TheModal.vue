@@ -33,6 +33,7 @@ const onClose = () => {
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 25px;
   .modal-backdrop {
     position: absolute;
     top: 0;
@@ -45,7 +46,7 @@ const onClose = () => {
     position: relative;
     background: rgba(9, 33, 67, 1);
     border-radius: 20px;
-    margin: 25px auto;
+    margin: auto;
     max-width: 500px;
     color: #ffffff !important;
     .modal-header {
