@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, toRefs, watch } from 'vue';
+import { onMounted, ref, toRefs, watch } from 'vue';
 import TimerContent from './TimerContent.vue';
 
 const props = defineProps<{
@@ -56,6 +56,11 @@ function startTimer() {
 }
 
 watch(date, () => {
+  resetTimer();
+  startTimer();
+});
+
+onMounted(() => {
   resetTimer();
   startTimer();
 });
