@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, toRefs, watch } from 'vue';
 import TimerContent from './TimerContent.vue';
 
 const props = defineProps<{
   title: string,
   date: Date
 }>();
+
+const { date } = toRefs(props);
 
 const days = ref("00");
 const hours = ref("00");
@@ -53,7 +55,10 @@ function startTimer() {
   }, 1000);
 }
 
-startTimer();
+watch(date, () => {
+  resetTimer();
+  startTimer();
+});
 </script>
 
 <template>
@@ -84,9 +89,10 @@ startTimer();
     text-align: center;
     letter-spacing: 0.125em;
     color: #FFFFFF;
-    text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
   .timer-content {
     margin-top: 25px;
