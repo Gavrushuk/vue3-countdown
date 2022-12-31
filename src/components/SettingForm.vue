@@ -43,6 +43,13 @@ const onSave = () => {
     date: date.value
   });
 };
+
+const onPreset = () => {
+  emit('onSave', {
+    title: 'Happy New Year',
+    date: 'Januar 1, 2023 00:00:00'
+  });
+};
 </script>
 
 <template>
@@ -60,6 +67,10 @@ const onSave = () => {
     </div>
 
     <button @click="onSave" class="save-btn" :disabled="!!isTitleInvalid || !!isDateInvalid">Save</button>
+
+    <div>OR use presets</div>
+
+    <button @click="onPreset" class="save-btn">New year</button>
   </div>
 </template>
 
