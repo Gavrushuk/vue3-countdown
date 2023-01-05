@@ -44,7 +44,7 @@ const onClose = () => {
   }
   .modal-content {
     position: relative;
-    background: rgba(9, 33, 67, 1);
+    background: #092143;
     border-radius: 20px;
     margin: auto;
     max-width: 500px;

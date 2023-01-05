@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue';
 
 const isOpenedSettingModal = ref(false);
 const title = ref('Happy New Year');
-const date = ref(new Date('Januar 1, 2023 00:00:00'));
+const date = ref(new Date(`Januar 1, ${+(new Date().getFullYear()) + 1} 00:00:00`));
 
 onMounted(() => {
   syncSetting();
@@ -19,9 +19,7 @@ const syncSetting = () => {
       date.value = new Date(JSON.parse(localStorage.setting).date);
     }
   } catch (error) {
-    console.error(error);
-    title.value = 'Happy New Year';
-    date.value = new Date('Januar 1, 2023 00:00:00');
+    console.log(error);
   }
 }
 

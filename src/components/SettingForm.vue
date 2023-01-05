@@ -44,11 +44,33 @@ const onSave = () => {
   });
 };
 
-const onPreset = () => {
-  emit('onSave', {
-    title: 'Happy New Year',
-    date: 'Januar 1, 2023 00:00:00'
-  });
+const onPreset = (type: string) => {
+  const currentMinutes = new Date().getMinutes();
+  const currentHour = new Date().getHours();
+  const currentDay = new Date().getDate();
+  const currentMonth = new Date().getMonth() + 1;
+  const currentYear = new Date().getFullYear();
+
+  switch (type) {
+    case 'christmas':
+      let year = currentYear;
+
+      if (+currentMinutes >= 0 && +currentHour >= 0 && +currentDay >= 25 && +currentMonth >= 12) {
+        year = +currentYear + 1;
+      }
+
+      emit('onSave', {
+        title: 'Merry Christmas',
+        date: `December 25, ${year} 00:00:00`
+      });
+      break;
+    case 'new year':
+      emit('onSave', {
+        title: 'Happy New Year',
+        date: `Januar 1, ${+currentYear + 1} 00:00:00`
+      });
+      break;
+  }
 };
 </script>
 
@@ -70,7 +92,10 @@ const onPreset = () => {
 
     <div>OR use presets</div>
 
-    <button @click="onPreset" class="save-btn">New year</button>
+    <div class="presets">
+      <button @click="onPreset('christmas')" class="save-btn">Christmas</button>
+      <button @click="onPreset('new year')" class="save-btn">New year</button>
+    </div>
   </div>
 </template>
 
@@ -121,6 +146,16 @@ const onPreset = () => {
     background-color: #A5DEFF;
     border: none;
     cursor: pointer;
+  }
+
+  .presets {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    .save-btn {
+      margin: 0;
+    }
   }
 
   &:deep(.dp__input) {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { onMounted, ref, toRefs, watch } from 'vue';
+import { ref, toRefs, watch } from 'vue';
 import TimerContent from './TimerContent.vue';
-import HappyNewYear from "@/assets/happy-new-year.mp3";
+import TimerEnd from "@/assets/timer-end.mp3";
 
 const props = defineProps<{
   title: string,
@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const { date } = toRefs(props);
 
-const audio = new Audio(HappyNewYear);
+const audio = new Audio(TimerEnd);
 audio.volume = 0.5;
 const isTimeFinish = ref(false);
 
@@ -52,8 +52,11 @@ function updateTimer() {
 }
 
 function startTimer() {
+  if ((props.date.getTime() - (new Date()).getTime()) <= 0) return;
+
   timerInterval = window.setInterval(() => {
     updateTimer();
+
     if ((props.date.getTime() - (new Date()).getTime()) <= 0) {
       isTimeFinish.value = true;
       resetTimer();
@@ -61,7 +64,13 @@ function startTimer() {
       setTimeout(() => {
         audio.pause();
         isTimeFinish.value = false;
-      }, 58000);
+      }, 30000);
+      return;
+    }
+
+    if (isTimeFinish.value) {
+      audio.pause();
+      isTimeFinish.value = false;
     }
   }, 1000);
 }
@@ -69,12 +78,7 @@ function startTimer() {
 watch(date, () => {
   resetTimer();
   startTimer();
-});
-
-onMounted(() => {
-  resetTimer();
-  startTimer();
-});
+}, { immediate: true });
 </script>
 
 <template>
@@ -104,7 +108,7 @@ onMounted(() => {
   max-width: 1050px;
   padding: 50px 86px;
   &.finish {
-    animation: light-show 5s, shake 1s;
+    animation: light-show 1s, shake 1s;
     animation-iteration-count: infinite;
   }
   .timer-title {
@@ -154,15 +158,7 @@ onMounted(() => {
 
 @keyframes light-show {
   0% { box-shadow: 0px 0px 0px 0px transparent; }
-  10% { box-shadow: 0px 0px 500px 100px #0ca90c; }
-  20% { box-shadow: 0px 0px 0px 0px transparent; }
-  30% { box-shadow: 0px 0px 500px 100px #ce0d0d; }
-  40% { box-shadow: 0px 0px 0px 0px transparent; }
-  50% { box-shadow: 0px 0px 500px 100px #ffd700; }
-  60% { box-shadow: 0px 0px 0px 0px transparent; }
-  70% { box-shadow: 0px 0px 500px 100px #3225de; }
-  80% { box-shadow: 0px 0px 0px 0px transparent; }
-  90% { box-shadow: 0px 0px 500px 100px #8314b9; }
+  50% { box-shadow: 0px 0px 500px 100px #A5DEFF; }
   100% { box-shadow: 0px 0px 0px 0px transparent; }
 }
 </style>
