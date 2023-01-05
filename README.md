@@ -1,4 +1,4 @@
-# vue3-countdown
+# Countdown App created with Vue 3 framework
 
 ## Design from [Figma Community](https://www.figma.com/community/)
 
