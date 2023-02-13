@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Countdown App",
+  "version": "1.0.0",
+  "action": {
+      "default_title": "Countdown App",
+      "default_popup": "index.html"
+  },
+  "description": "Countdown App",
+  "options_page": "index.html"
+}

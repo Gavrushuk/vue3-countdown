@@ -78,6 +78,7 @@ const onSave = (data: any) => {
     right: 25px;
     background: transparent;
     border: none;
+    z-index: 1;
     cursor: pointer;
     img {
       width: 40px;

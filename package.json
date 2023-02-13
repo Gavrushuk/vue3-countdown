@@ -9,6 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@crxjs/vite-plugin": "^1.0.14",
     "@vuepic/vue-datepicker": "^3.6.3",
     "sass": "^1.57.1",
     "vue": "^3.2.41",

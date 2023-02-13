@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import TimerView from './views/TimerView.vue';
 </script>
 
 <template>
-  <RouterView />
+  <TimerView />
 </template>
 
 <style lang="scss">
@@ -17,5 +17,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 800px;
+  height: 600px;
 }
 </style>
