@@ -36,27 +36,25 @@ const { days, hours, minutes, seconds } = toRefs(props);
 .timer-content {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 24px;
+  filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.25));
   .timer-content__item {
     flex: 1;
-    padding: 46px 10px;
-    background: #080F1A;
-    border-radius: 22px;
     .timer-content__value {
       font-family: 'Poppins';
-      font-weight: 900;
-      font-size: 64px;
-      line-height: 86px;
+      font-weight: 700;
+      font-size: 128px;
+      line-height: 154px;
       text-align: center;
-      color: #FFFFFF;
+      color: #F5F5F7;
     }
     .timer-content__description {
       font-family: 'Poppins';
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 21px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
       text-align: center;
-      color: #A5DEFF;
+      color: #F5F5F7;
     }
   }
   @media (max-width: 1150px) {
@@ -68,9 +66,7 @@ const { days, hours, minutes, seconds } = toRefs(props);
     }
   }
   @media (max-width: 768px) {
-    gap: 6px;
     .timer-content__item {
-      padding: 20px 10px;
       .timer-content__value {
         font-size: 24px;
         line-height: 34px;

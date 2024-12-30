@@ -100,41 +100,29 @@ watch(date, () => {
 
 <style lang="scss" scoped>
 .timer-card {
-  background: rgba(9, 33, 67, 0.8);
-  box-shadow: 0px 0px 0px 0px transparent;
-  backdrop-filter: blur(10px);
-  border-radius: 36px;
   width: 100%;
-  max-width: 1050px;
-  padding: 50px 86px;
+  max-width: 1000px;
+  cursor: pointer;
   &.finish {
-    animation: light-show 1s, shake 1s;
+    animation: shake 1s;
     animation-iteration-count: infinite;
   }
   .timer-title {
-    font-weight: 200;
-    font-size: 90px;
-    line-height: 135px;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 77px;
     text-align: center;
-    letter-spacing: 0.125em;
-    color: #FFFFFF;
+    color: #F5F5F7;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    filter: drop-shadow(0px 7px 20px #343946);
   }
   .timer-content {
     margin-top: 25px;
   }
-  @media (max-width: 1150px) {
-    padding: 50px;
-    .timer-title {
-      font-size: 70px;
-      line-height: 90px;
-    }
-  }
   @media (max-width: 768px) {
-    padding: 12.5px;
     .timer-title {
       font-size: 40px;
       line-height: 60px;
@@ -154,11 +142,5 @@ watch(date, () => {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-@keyframes light-show {
-  0% { box-shadow: 0px 0px 0px 0px transparent; }
-  50% { box-shadow: 0px 0px 500px 100px #A5DEFF; }
-  100% { box-shadow: 0px 0px 0px 0px transparent; }
 }
 </style>
